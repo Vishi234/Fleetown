@@ -1,0 +1,182 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/muli</item>
+    </style>
+    <style name="tabBackButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:drawableLeft">@drawable/back</item>
+    </style>
+    <style name="tabHeaderBigTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+    <style name="tabHeaderTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+    <style name="tabHeaderIconCircle">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/header_rounder_icon</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    <style name="HintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color80</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HintText2" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ErrorText" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="MaterialInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="boxStrokeColor">@color/colorDefault</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxCornerRadiusBottomEnd">2sp</item>
+        <item name="boxCornerRadiusBottomStart">2sp</item>
+        <item name="boxCornerRadiusTopStart">2sp</item>
+        <item name="boxCornerRadiusTopEnd">2sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="MaterialInput2">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="boxStrokeColor">@color/colorWhite</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxCornerRadiusBottomEnd">2sp</item>
+        <item name="boxCornerRadiusBottomStart">2sp</item>
+        <item name="boxCornerRadiusTopStart">2sp</item>
+        <item name="boxCornerRadiusTopEnd">2sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="LoginInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingLeft">18sp</item>
+        <item name="android:paddingRight">18sp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="MyEditTextstyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/searchinput</item>
+        <item name="android:textColorHint">@color/colorF4</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="DefaultEditText">
+        <item name="android:background">@drawable/edittext_default</item>
+        <item name="android:textColorHint">@color/colorCC</item>
+        <item name="android:textColor">@color/color80</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingLeft">18sp</item>
+        <item name="android:paddingRight">18sp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="DefaultEditText2">
+        <item name="android:background">@drawable/edittext_default2</item>
+        <item name="android:textColorHint">@color/colorCC</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="ButtonPrimary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorDefault</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="LinkStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+    <style name="ParentLayoutHome">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+    <style name="ImageIconHomeMobile">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+    </style>
+    <style name="TextHomeMobile">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">#28363b</item>
+        <item name="android:text"></item>
+    </style>
+</resources>

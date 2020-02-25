@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Fleetown</string>
+    <string name="lan_english">English</string>
+    <string name="lan_hindi">Hindi(हिन्दी)</string>
+    <string name="lan_tamil">Tamil(தமிழ்)</string>
+    <string name="lan_telugu">Telugu(తెలుగు)</string>
+    <string name="lan_malayalam">Malayalam(മലയാളം)</string>
+    <string name="lan_marathi">Marathi(मराठी)</string>
+    <string name="lan_kannada">Kannada(ಕನ್ನಡ)</string>
+    <string name="lan">Language</string>
+    <string name="lan_title">Choose Language/भाषा चुनिए</string>
+    <string name="lan_change">Change Language</string>
+    <string name="continue_btn">Continue/आगे बढ़ो</string>
+    <string name="change_lan_btn">Change Language</string>
+    <string name="login_btn_text">Login</string>
+    <string name="verification_title">Verification</string>
+    <string name="otp_top_title">Verification sent an OTP on your mobile </string>
+    <string name="btn_sub_text">Submit</string>
+    <string name="reg_title">Registration</string>
+    <string name="reg_sub_title">Enter your personal details</string>
+    <string name="vehicle_reg">Vehicle Registration</string>
+    <string name="vehilce_reg_subtitle">Enter your vehicle information</string>
+    <string name="two_label">Two Wheeler</string>
+    <string name="four_label">Four Wheeler</string>
+    <string name="pick_brand">Pick a vehicle brand</string>
+    <string name="use_my_loc">User My GPS Location</string>
+    <string name="serverip">http://192.168.0.102:9001/</string>
+    <string name="nointernet">No Internet Connection.</string>
+</resources>
