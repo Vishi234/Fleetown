@@ -10,6 +10,8 @@
     <Property Name="IsGpsLoc" Type="Int32" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="UserCredential">
     <Key>
@@ -74,6 +76,15 @@
     <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
+  <EntityType Name="MstParam">
+    <Key>
+      <PropertyRef Name="ParamId" />
+    </Key>
+    <Property Name="ParamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParamType" Type="Int32" />
+    <Property Name="ParamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParamDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="SubService">
     <Key>
       <PropertyRef Name="Id" />
@@ -98,16 +109,7 @@
     <EntitySet Name="VehicleModels" EntityType="Self.VehicleModel" />
     <EntitySet Name="FeatureLists" EntityType="Self.FeatureList" />
     <EntitySet Name="MainServices" EntityType="Self.MainService" />
+    <EntitySet Name="MstParams" EntityType="Self.MstParam" />
     <EntitySet Name="SubServices" EntityType="Self.SubService" />
-    <EntitySet Name="MstParams" EntityType="FleetDBModel.MstParam" />
   </EntityContainer>
-  <EntityType Name="MstParam">
-    <Key>
-      <PropertyRef Name="ParamId" />
-    </Key>
-    <Property Name="ParamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ParamType" Type="Int32" />
-    <Property Name="ParamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ParamDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>

@@ -12,6 +12,8 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Web;
 using System.IO;
+using FleetApi.Models.Entity;
+using System.Web.Script.Serialization;
 
 namespace FleetApi.Controllers
 {
@@ -19,46 +21,19 @@ namespace FleetApi.Controllers
     {
         string response = string.Empty;
         FleetDBEntities db = new FleetDBEntities();
-        DataTable dt = new DataTable();
+        DataTable dt = new DataTable(); 
         //string flag, msg = string.Empty;
         HttpResponseMessage result;
-
-        [Route("api/CheckUserInfo")]
+        
+        [Route("api/User/CheckUserInfo")]
         [HttpPost]
-        public HttpResponseMessage CheckUserInfo(UserCredential credentials)
+        public HttpResponseMessage CheckUserInfo(UserEntity user)
         {
             try
             {
-
-                var record = db.UserCredentials.Where(c => c.UserId == credentials.UserId).ToList();
-                if (record.Count == 0)
-                {
-                    credentials.UserType = 1;
-                    db.UserCredentials.Add(credentials);
-                    db.SaveChanges();
-                    result = Serializer(ListResponse("A", "Login Successfully", dt));
-                }
-                else
-                {
-                    var data = (from c in db.UserCredentials
-                                join a in db.UserAddresses on c.UserId equals a.UserId into s
-                                from x in s.DefaultIfEmpty()
-                                where c.UserId == credentials.UserId
-                                select new
-                                {
-                                    c.LoginId,
-                                    c.UserId,
-                                    c.Name,
-                                    c.Language,
-                                    c.LastLogin,
-                                    c.ImeiNo,
-                                    c.Status,
-                                    c.Email,
-                                    IsGpsLoc = (x == null ? string.Empty : x.IsGpsLoc.ToString()),
-                                    Address = (x == null ? string.Empty : x.Address.ToString()),
-                                }).ToList();
-                    result = Serializer(ListResponse("U", "Existing User", ListToDatatable(data)));
-                }
+               
+                UserAuthorization objUser = new UserAuthorization();
+                result = Serializer(objUser.UserManagement(user));
             }
             catch (Exception ex)
             {
@@ -68,24 +43,15 @@ namespace FleetApi.Controllers
             return result;
 
         }
-        [Route("api/UpdateUserInfo")]
-        [HttpPost]
-        public HttpResponseMessage UpdateUserInfo(UserCredential credentials)
+        [Route("api/User/Logout")]
+        [HttpGet]
+        public HttpResponseMessage Logout(string userId)
         {
             try
             {
-                var record = db.UserCredentials.Where(c => c.UserId == credentials.UserId).ToList();
-                record.ForEach(c =>
-                {
-                    c.Name = credentials.Name;
-                    c.Email = credentials.Email;
-                    c.Language = credentials.Language;
-                    c.Status = c.Status;
-                });
-                var address = db.UserAddresses.Where(b => b.UserId == credentials.UserId).ToList();
-                address.ForEach(b=> {
-                    b.
-                })
+
+                UserAuthorization objUser = new UserAuthorization();
+                result = Serializer(objUser.UserLogout(userId));
             }
             catch (Exception ex)
             {
@@ -95,14 +61,34 @@ namespace FleetApi.Controllers
             return result;
 
         }
+        [Route("api/User/GetMasterData")]
+        [HttpGet]
+        public HttpResponseMessage GetMasterData(string dataType)
+        {
+            try
+            {
+                VehicleManagement objVehicle = new VehicleManagement();
+                response = objVehicle.GetMasterData(dataType);
+                result = Serializer("{" + response.Substring(0, response.Length - 1) + "}");
+            }
+            catch (Exception ex)
+            {
+                EHCommon.WriteException(ex);
+                result = Serializer(ListResponse("F", ex.Message, dt));
+            }
+            return result;
 
-        [Route("api/GetVehicleMake")]
+        }
+        [Route("api/User/GetServiceList")]
         [HttpGet]
-        public HttpResponseMessage GetVehicleMake()
+        public HttpResponseMessage GetServiceList(string menuId,string vehicleId)
         {
             try
             {
-                result = Serializer(ListResponse("", "", ListToDatatable(db.VehicleMakes.ToList())));
+                UserAuthorization objUser = new UserAuthorization();
+                EHCommon.WriteExceptionText("MenuId" + menuId);
+                EHCommon.WriteExceptionText("VehicleId" + vehicleId);
+                result = Serializer(ListResponse("", "", objUser.GetServices(menuId, vehicleId)));
             }
             catch (Exception ex)
             {
@@ -111,60 +97,14 @@ namespace FleetApi.Controllers
             }
             return result;
         }
-        [Route("api/GetVehicleModel")]
+        [Route("api/User/GetUserAddressList")]
         [HttpGet]
-        public HttpResponseMessage GetVehicleModel(string makeName)
+        public HttpResponseMessage GetUserAddressList(string userId,string addressId)
         {
             try
             {
-                int makeId = db.VehicleMakes.Where(d => d.Title == makeName).Select(p => p.Id).SingleOrDefault();
-                result = Serializer(ListResponse("", "", ListToDatatable(db.VehicleModels.Where(C => C.MakeId == makeId).ToList())));
-            }
-            catch (Exception ex)
-            {
-                EHCommon.WriteException(ex);
-                result = Serializer(ListResponse("F", ex.Message, dt));
-            }
-            return result;
-        }
-        [Route("api/GetServiceList")]
-        [HttpGet]
-        public HttpResponseMessage GetServiceList(string serviceName)
-        {
-            try
-            {
-                int makeId = db.MainServices.Where(d => d.Name == serviceName).Select(p => p.Id).SingleOrDefault();
-                result = Serializer(ListResponse("", "", ListToDatatable(db.SubServices.Where(C => C.ParentId == makeId).ToList())));
-            }
-            catch (Exception ex)
-            {
-                EHCommon.WriteException(ex);
-                result = Serializer(ListResponse("F", ex.Message, dt));
-            }
-            return result;
-        }
-        [Route("api/GetMainMenu")]
-        [HttpGet]
-        public HttpResponseMessage GetMainMenu()
-        {
-            try
-            {
-                result = Serializer(ListResponse("", "", ListToDatatable(db.MainServices.Where(C => C.Status == "1").ToList())));
-            }
-            catch (Exception ex)
-            {
-                EHCommon.WriteException(ex);
-                result = Serializer(ListResponse("F", ex.Message, dt));
-            }
-            return result;
-        }
-        [Route("api/GetParamList")]
-        [HttpGet]
-        public HttpResponseMessage GetParamList(int paramType)
-        {
-            try
-            {
-                result = Serializer(ListResponse("", "", ListToDatatable(db.MstParams.Where(C => C.ParamType == paramType).ToList())));
+                UserAuthorization objUser = new UserAuthorization();
+                result = Serializer(objUser.GetUserAddress(userId, addressId));
             }
             catch (Exception ex)
             {

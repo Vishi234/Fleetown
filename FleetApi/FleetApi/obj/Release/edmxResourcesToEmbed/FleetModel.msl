@@ -4,6 +4,8 @@
     <EntitySetMapping Name="UserAddresses">
       <EntityTypeMapping TypeName="FleetDBModel.UserAddress">
         <MappingFragment StoreEntitySet="UserAddress">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -75,6 +77,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MstParams">
+      <EntityTypeMapping TypeName="FleetDBModel.MstParam">
+        <MappingFragment StoreEntitySet="MstParam">
+          <ScalarProperty Name="ParamId" ColumnName="ParamId" />
+          <ScalarProperty Name="ParamType" ColumnName="ParamType" />
+          <ScalarProperty Name="ParamName" ColumnName="ParamName" />
+          <ScalarProperty Name="ParamDesc" ColumnName="ParamDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SubServices">
       <EntityTypeMapping TypeName="FleetDBModel.SubService">
         <MappingFragment StoreEntitySet="SubServices">
@@ -88,16 +100,6 @@
           <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MstParams">
-      <EntityTypeMapping TypeName="FleetDBModel.MstParam">
-        <MappingFragment StoreEntitySet="MstParam">
-          <ScalarProperty Name="ParamDesc" ColumnName="ParamDesc" />
-          <ScalarProperty Name="ParamName" ColumnName="ParamName" />
-          <ScalarProperty Name="ParamType" ColumnName="ParamType" />
-          <ScalarProperty Name="ParamId" ColumnName="ParamId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

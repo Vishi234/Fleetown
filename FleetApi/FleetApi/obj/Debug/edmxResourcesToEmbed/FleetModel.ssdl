@@ -71,6 +71,8 @@ warning 6002: The table/view 'D:\FLEETAPI\FLEETAPI\APP_DATA\FLEETDB.MDF.dbo.SubS
     <Property Name="UserId" Type="nvarchar" MaxLength="100" />
     <Property Name="Address" Type="nvarchar(max)" />
     <Property Name="IsGpsLoc" Type="int" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="200" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="200" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
   </EntityType>

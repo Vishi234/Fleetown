@@ -138,7 +138,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="FeatureList.cs">
       <DependentUpon>FleetModel.tt</DependentUpon>
     </Compile>
@@ -164,9 +166,17 @@
       <DependentUpon>FleetModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BAL\Common.cs" />
-    <Compile Include="Models\BAL\User.cs" />
+    <Compile Include="Models\BAL\OrderManagement.cs" />
+    <Compile Include="Models\BAL\UserAuthorization.cs" />
+    <Compile Include="Models\BAL\VehicleManagement.cs" />
     <Compile Include="Models\DAL\SQLHelper.cs" />
+    <Compile Include="Models\Entity\AddressEntity.cs" />
+    <Compile Include="Models\Entity\CouponEntity.cs" />
+    <Compile Include="Models\Entity\FreeBookingEntity.cs" />
+    <Compile Include="Models\Entity\OrderEntity.cs" />
     <Compile Include="Models\Entity\UserEntity.cs" />
+    <Compile Include="Models\Entity\UserOrdersEntity.cs" />
+    <Compile Include="Models\Entity\VehicleEntity.cs" />
     <Compile Include="MstParam.cs">
       <DependentUpon>FleetModel.tt</DependentUpon>
     </Compile>
@@ -197,6 +207,7 @@
       <DependentUpon>FleetModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -207,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\User\" />
+    <Folder Include="Views\Vehicle\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

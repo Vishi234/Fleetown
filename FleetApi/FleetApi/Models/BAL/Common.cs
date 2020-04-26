@@ -78,7 +78,7 @@ namespace FleetApi.Models.BAL
     {
         public static void WriteException(Exception e)
         {
-            string logfileadd = ConfigurationManager.AppSettings["exception_log_file"].ToString();
+            string logfileadd = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["exception_log_file"].ToString());
             using (System.IO.StreamWriter writer = new System.IO.StreamWriter(logfileadd, true))
             {
 
@@ -88,6 +88,18 @@ namespace FleetApi.Models.BAL
                 writer.Close();
             }
 
+        }
+        public static void WriteExceptionText(string text)
+        {
+            string logfileadd = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["exception_log_file"].ToString());
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(logfileadd, true))
+            {
+
+                writer.WriteLine(text);
+                writer.WriteLine("Time :" + DateTime.Now.ToString("dd-MMM-yyyy HH:mm:ss") + "\r\n");
+                writer.WriteLine("----------------------------------------------------------------------------------------------------------------------");
+                writer.Close();
+            }
         }
     }
 }
