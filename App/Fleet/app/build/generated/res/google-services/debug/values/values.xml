@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">789562860502-hv4l21o0tr37p91v9k449rvbukotjcja.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://fleet-c2856.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">789562860502</string>
+    <string name="google_api_key" translatable="false">AIzaSyDzb_O2AGJQKcq1NAdJR4RbfIxy0KQkul4</string>
+    <string name="google_app_id" translatable="false">1:789562860502:android:41e661e8a32e225afeba77</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDzb_O2AGJQKcq1NAdJR4RbfIxy0KQkul4</string>
+    <string name="google_storage_bucket" translatable="false">fleet-c2856.appspot.com</string>
+    <string name="project_id" translatable="false">fleet-c2856</string>
+</resources>
